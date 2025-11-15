@@ -20,6 +20,7 @@ func Name(name string) string {
 
 // Time returns a local Time object from a Unix UTC string.
 func Time(unix string) time.Time {
+	unix = strings.TrimSpace(unix)
 	uint, _ := strconv.ParseInt(unix, 10, 64)
 	return time.Unix(uint, 0).Local()
 }

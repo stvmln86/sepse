@@ -24,7 +24,7 @@ func TestTime(t *testing.T) {
 	want := time.Unix(1234567890, 0).Local()
 
 	// success
-	tobj := Time("1234567890")
+	tobj := Time("\t1234567890\n")
 	assert.Equal(t, want, tobj)
 }
 
