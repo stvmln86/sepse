@@ -6,12 +6,12 @@
 # run server on ADDR 
 $ sepse host ADDR 
 
-# list all names on ADDR 
+# list all lanes on ADDR 
 $ sepse list ADDR 
 
 # receive messages from ADDR 
-$ sepse recv ADDR NAME
+$ sepse recv ADDR LANE
 
 # send message to ADDR 
-$ sepse send ADDR NAME DATA 
+$ sepse send ADDR LANE DATA 
 ```

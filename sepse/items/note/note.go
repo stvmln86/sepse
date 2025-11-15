@@ -19,9 +19,9 @@ type Note struct {
 var Regex = regexp.MustCompile(`^(\d+) (.+)$`)
 
 // New returns a new Note.
-func New(body string, time time.Time) *Note {
+func New(body string, tobj time.Time) *Note {
 	body = neat.Body(body)
-	return &Note{body, time}
+	return &Note{body, tobj}
 }
 
 // Parse returns a new Note from a parsed string.

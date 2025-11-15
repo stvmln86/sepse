@@ -36,7 +36,7 @@ func (u *User) Close() error {
 func (u *User) Read() (string, error) {
 	text, err := bufio.NewReader(u.Conn).ReadString('\n')
 	if err != nil {
-		return "", fmt.Errorf("cannot write to User %q - %w", u.Conn.RemoteAddr(), err)
+		return "", fmt.Errorf("cannot read from User %q - %w", u.Conn.RemoteAddr(), err)
 	}
 
 	return text, nil
