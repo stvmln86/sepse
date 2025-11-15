@@ -12,10 +12,10 @@ func Body(body string) string {
 	return strings.TrimSpace(body)
 }
 
-// Name returns an uppercase whitespace-trimmed name string.
-func Name(name string) string {
-	name = strings.ToUpper(name)
-	return strings.TrimSpace(name)
+// Lane returns an uppercase whitespace-trimmed lane string.
+func Lane(lane string) string {
+	lane = strings.ToUpper(lane)
+	return strings.TrimSpace(lane)
 }
 
 // Time returns a local Time object from a Unix UTC string.

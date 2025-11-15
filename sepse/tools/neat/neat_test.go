@@ -17,10 +17,10 @@ func TestBody(t *testing.T) {
 	assert.Equal(t, "Body.", body)
 }
 
-func TestName(t *testing.T) {
+func TestLane(t *testing.T) {
 	// success
-	name := Name("\tname\n")
-	assert.Equal(t, "NAME", name)
+	lane := Lane("\tlane\n")
+	assert.Equal(t, "LANE", lane)
 }
 
 func TestTime(t *testing.T) {
