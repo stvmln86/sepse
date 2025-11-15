@@ -7,9 +7,9 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func mockTime() time.Time {
-	return time.Unix(1234567890, 0).Local()
-}
+var (
+	mockTime = time.Unix(1234567890, 0).Local()
+)
 
 func TestBody(t *testing.T) {
 	// success
@@ -26,11 +26,11 @@ func TestName(t *testing.T) {
 func TestTime(t *testing.T) {
 	// success
 	tobj := Time("\t1234567890\n")
-	assert.Equal(t, mockTime(), tobj)
+	assert.Equal(t, mockTime, tobj)
 }
 
 func TestUnix(t *testing.T) {
 	// success
-	unix := Unix(mockTime())
+	unix := Unix(mockTime)
 	assert.Equal(t, "1234567890", unix)
 }

@@ -7,26 +7,22 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func mockNote() *Note {
-	return New("body", mockTime())
-}
-
-func mockTime() time.Time {
-	return time.Unix(1234567890, 0).Local()
-}
+var (
+	mockTime = time.Unix(1234567890, 0).Local()
+)
 
 func TestNew(t *testing.T) {
 	// success
-	note := New("body", mockTime())
+	note := New("body", mockTime)
 	assert.Equal(t, "body", note.Body)
-	assert.Equal(t, mockTime(), note.Time)
+	assert.Equal(t, mockTime, note.Time)
 }
 
 func TestParse(t *testing.T) {
 	// success
 	note, err := Parse("1234567890 body")
 	assert.Equal(t, "body", note.Body)
-	assert.Equal(t, mockTime(), note.Time)
+	assert.Equal(t, mockTime, note.Time)
 	assert.NoError(t, err)
 
 	// failure - cannot parse Note
@@ -36,7 +32,10 @@ func TestParse(t *testing.T) {
 }
 
 func TestString(t *testing.T) {
+	// setup
+	note := New("body", mockTime)
+
 	// success
-	text := mockNote().String()
+	text := note.String()
 	assert.Equal(t, "1234567890 body", text)
 }
