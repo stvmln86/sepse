@@ -14,14 +14,14 @@ import (
 type Lane struct {
 	Name  string
 	Conns map[net.Conn]bool
-	Mutex *sync.Mutex
+	Mutex sync.Mutex
 }
 
 // New returns a new Lane.
 func New(name string, conns ...net.Conn) *Lane {
 	name = neat.Name(name)
 	cmap := make(map[net.Conn]bool)
-	lane := &Lane{name, cmap, new(sync.Mutex)}
+	lane := &Lane{Name: name, Conns: cmap}
 	for _, conn := range conns {
 		lane.Add(conn)
 	}

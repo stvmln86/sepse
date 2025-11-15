@@ -23,7 +23,7 @@ func TestNew(t *testing.T) {
 	lane := New("NAME", conn)
 	assert.Equal(t, "NAME", lane.Name)
 	assert.Contains(t, lane.Conns, conn)
-	assert.NotNil(t, lane.Mutex)
+	assert.True(t, lane.Mutex.TryLock())
 }
 
 func TestAdd(t *testing.T) {
